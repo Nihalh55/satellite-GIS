@@ -1,6 +1,7 @@
-import ee
+import ee, os, geemap
 
 class Utility():
+    
     
     # Function Definition -> Save image to drive
     def saveImageToDrive(self, fileName, folderName, image):
@@ -33,9 +34,9 @@ class Utility():
             res     = dataset.select('temperature')
         elif typeOfData == 'NDVI':
             res     = dataset.select('ndvi')
-        elif typeOfData == 'Sea Surface Elevation':
+        elif typeOfData == 'seaSurfaceElevation':
             res     = dataset.select('surface_elevation')
-        elif typeOfData == 'Topographic Diversity':
+        elif typeOfData == 'topographicDiversity':
             res     = dataset.select('constant')
         else:
             res     = None
@@ -43,14 +44,7 @@ class Utility():
     
     # Function Definition -> Clip the image by a shape file
     def clipImageByShape(self, image, shapeName):
-        pass
-        # import os
-        # os.system("earthengine upload table --asset_id=users/nihalh55/MangaloreShapes Mangalore.zip")
-        # table = ee.FeatureCollection("users/nihalh55/MangaloreShapes")
-
-    # Function Definition -> Clip the image by the bounds (coordinates should be an nx2 array where n=number of coordinates)
-    def clipByBounds(self, image, coordinates):
-        bounds       = ee.Geometry.Polygon(coordinates)
-        clippedImage = image.clipToBoundsAndScale(bounds)
+        shape           = geemap.shp_to_ee("uploads\\"+shapeName+".shp")
+        clippedImage    = image.clipToBoundsAndScale(shape)
         return clippedImage	
 
