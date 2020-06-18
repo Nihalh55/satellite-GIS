@@ -76,12 +76,16 @@ class Utility():
             res     = dataset.select('constant')
         elif typeOfData == 'NDVI' and satelliteName == "MODIS/006/MOD13A2":
             res     = dataset.select('NDVI')
-            res     = ee.Image.constant(ee.Number(0.0001)).multiply(res)
+            def algo(image):
+                return ee.Image.constant(ee.Number(0.0001)).multiply(image)
+            res     = res.map(algorithm=algo)
         elif typeOfData == 'NDVI' and satelliteName == "LANDSAT/LC08/C01/T1_8DAY_NDVI":
             res     = dataset.select('NDVI')
         elif typeOfData == 'LST_Day_1km' and satelliteName == "MODIS/006/MOD11A1":
             res     = dataset.select('LST_Day_1km')
-            res     = ee.Image.constant(ee.Number(0.02)).multiply(res)
+            def algo(image):
+                return ee.Image.constant(ee.Number(0.02)).multiply(image)
+            res     = res.map(algorithm=algo)
         elif typeOfData == 'bedrock' and satelliteName == "NOAA/NGDC/ETOPO1":
             res     = dataset.select('bedrock')
         elif typeOfData == 'iceSurface' and satelliteName == "NOAA/NGDC/ETOPO1":

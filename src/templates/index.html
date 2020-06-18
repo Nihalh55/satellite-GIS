@@ -50,7 +50,7 @@
               document.getElementById("temporalInfo1").setAttribute("min", '1992-10-02');
               document.getElementById("temporalInfo2").setAttribute("min", '1992-10-02');
             }   
-            else if (val == "MODIS/006/MOD13A2 ") {
+            else if (val == "MODIS/006/MOD13A2") {
               $("#size").html("<option value='NDVI'>NDVI</option>");
               $('#temporalInfo').html("<label for=\"temporalInfo1\">Temporal Information - Start Date</label> <input type=\"date\" id=\"temporalInfo1\" name=\"temporalInfo1\" value=\"2020-06-03\" min=\"1992-10-02\" max=\"2018-12-31\" class=\"form-control\"/><label for=\"temporalInfo2\">Temporal Information - End Date</label> <input type=\"date\" id=\"temporalInfo2\" name=\"temporalInfo2\" value=\"2020-06-05\" min=\"1992-10-02\" max=\"2018-12-31\" class=\"form-control\"/>        ")
               document.getElementById("temporalInfo1").setAttribute("max", today);
