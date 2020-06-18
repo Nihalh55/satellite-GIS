@@ -57,6 +57,13 @@ def getGeoTiff():
     configuration["typeOfData"]     = request.form['typeOfData']
     configuration["fileName"]       = request.form['fileName']
     configuration["folderName"]     = request.form['folderName']
+    try:
+        configuration["temporalInfo1"]  = request.form['temporalInfo1']
+        configuration["temporalInfo2"]  = request.form['temporalInfo2']
+    except Exception as e:
+        configuration["temporalInfo1"]  = None
+        configuration["temporalInfo2"]  = None
+        logging.debug(e)
     response                        = geoTiffHelper.getGeoTiffFile(configuration)
     logging.debug(response)
     flash(response[0]["message"])
@@ -64,4 +71,4 @@ def getGeoTiff():
     
 # RUN
 if __name__ == '__main__':
-    app.run()
+    app.run(debug=True)
