@@ -34,15 +34,61 @@
               $("#size").html("<option value='Elevation'>Elevation</option><option value='LST'>LST</option><option value='NDVI'>NDVI</option>");
               $('#temporalInfo').html("")
             } 
+            else if (val == "CSP/ERGo/1_0/Global/SRTM_topoDiversity") {
+              $("#size").html("<option value='topographicDiversity'>Topographic Diversity</option>");
+              $('#temporalInfo').html("")
+            }
+            else if (val == "NOAA/NGDC/ETOPO1") {
+              $("#size").html("<option value='bedrock'>Bed Rock</option><option value='iceSurface'>Ice Surface</option>");
+              $('#temporalInfo').html("")
+            }
             else if (val == "HYCOM/sea_surface_elevation") {
               $("#size").html("<option value='seaSurfaceElevation'>Sea Surface Elevation</option>");
               $('#temporalInfo').html("<label for=\"temporalInfo1\">Temporal Information - Start Date</label> <input type=\"date\" id=\"temporalInfo1\" name=\"temporalInfo1\" value=\"2020-06-03\" min=\"1992-10-02\" max=\"2018-12-31\" class=\"form-control\"/><label for=\"temporalInfo2\">Temporal Information - End Date</label> <input type=\"date\" id=\"temporalInfo2\" name=\"temporalInfo2\" value=\"2020-06-05\" min=\"1992-10-02\" max=\"2018-12-31\" class=\"form-control\"/>        ")
               document.getElementById("temporalInfo1").setAttribute("max", today);
               document.getElementById("temporalInfo2").setAttribute("max", today);
-            } 
-            else if (val == "CSP/ERGo/1_0/Global/SRTM_topoDiversity") {
-              $("#size").html("<option value='topographicDiversity'>Topographic Diversity</option>");
-              $('#temporalInfo').html("")
+              document.getElementById("temporalInfo1").setAttribute("min", '1992-10-02');
+              document.getElementById("temporalInfo2").setAttribute("min", '1992-10-02');
+            }   
+            else if (val == "MODIS/006/MOD13A2 ") {
+              $("#size").html("<option value='NDVI'>NDVI</option>");
+              $('#temporalInfo').html("<label for=\"temporalInfo1\">Temporal Information - Start Date</label> <input type=\"date\" id=\"temporalInfo1\" name=\"temporalInfo1\" value=\"2020-06-03\" min=\"1992-10-02\" max=\"2018-12-31\" class=\"form-control\"/><label for=\"temporalInfo2\">Temporal Information - End Date</label> <input type=\"date\" id=\"temporalInfo2\" name=\"temporalInfo2\" value=\"2020-06-05\" min=\"1992-10-02\" max=\"2018-12-31\" class=\"form-control\"/>        ")
+              document.getElementById("temporalInfo1").setAttribute("max", today);
+              document.getElementById("temporalInfo2").setAttribute("max", today);
+              document.getElementById("temporalInfo1").setAttribute("min", '2000-02-18');
+              document.getElementById("temporalInfo2").setAttribute("min", '2000-02-18');
+            }
+            else if (val == "LANDSAT/LC08/C01/T1_8DAY_NDVI") {
+              $("#size").html("<option value='NDVI'>NDVI</option>");
+              $('#temporalInfo').html("<label for=\"temporalInfo1\">Temporal Information - Start Date</label> <input type=\"date\" id=\"temporalInfo1\" name=\"temporalInfo1\" value=\"2020-06-03\" min=\"1992-10-02\" max=\"2018-12-31\" class=\"form-control\"/><label for=\"temporalInfo2\">Temporal Information - End Date</label> <input type=\"date\" id=\"temporalInfo2\" name=\"temporalInfo2\" value=\"2020-06-05\" min=\"1992-10-02\" max=\"2018-12-31\" class=\"form-control\"/>        ")
+              document.getElementById("temporalInfo1").setAttribute("max", today);
+              document.getElementById("temporalInfo2").setAttribute("max", today);
+              document.getElementById("temporalInfo1").setAttribute("min", '2013-04-01');
+              document.getElementById("temporalInfo2").setAttribute("min", '2013-04-01');
+            }
+            else if (val == "MODIS/006/MOD11A1") {
+              $("#size").html("<option value='LST_Day_1km'>LST per Day 1KM</option>");
+              $('#temporalInfo').html("<label for=\"temporalInfo1\">Temporal Information - Start Date</label> <input type=\"date\" id=\"temporalInfo1\" name=\"temporalInfo1\" value=\"2020-06-03\" min=\"1992-10-02\" max=\"2018-12-31\" class=\"form-control\"/><label for=\"temporalInfo2\">Temporal Information - End Date</label> <input type=\"date\" id=\"temporalInfo2\" name=\"temporalInfo2\" value=\"2020-06-05\" min=\"1992-10-02\" max=\"2018-12-31\" class=\"form-control\"/>        ")
+              document.getElementById("temporalInfo1").setAttribute("max", today);
+              document.getElementById("temporalInfo2").setAttribute("max", today);
+              document.getElementById("temporalInfo1").setAttribute("min", '2000-03-05');
+              document.getElementById("temporalInfo2").setAttribute("min", '2000-03-05');
+            }
+            else if (val == "TRMM/3B43V7") {
+              $("#size").html("<option value='precipitation'>Precipitation Monthly</option>");
+              $('#temporalInfo').html("<label for=\"temporalInfo1\">Temporal Information - Start Date</label> <input type=\"date\" id=\"temporalInfo1\" name=\"temporalInfo1\" value=\"2020-06-03\" min=\"1992-10-02\" max=\"2018-12-31\" class=\"form-control\"/><label for=\"temporalInfo2\">Temporal Information - End Date</label> <input type=\"date\" id=\"temporalInfo2\" name=\"temporalInfo2\" value=\"2020-06-05\" min=\"1992-10-02\" max=\"2018-12-31\" class=\"form-control\"/>        ")
+              document.getElementById("temporalInfo1").setAttribute("max", today);
+              document.getElementById("temporalInfo2").setAttribute("max", today);
+              document.getElementById("temporalInfo1").setAttribute("min", '1998-01-01');
+              document.getElementById("temporalInfo2").setAttribute("min", '1998-01-01');
+            }
+            else if (val == "TRMM/3B42") {
+              $("#size").html("<option value='precipitation'>Precipitation 3-Hourly</option>");
+              $('#temporalInfo').html("<label for=\"temporalInfo1\">Temporal Information - Start Date</label> <input type=\"date\" id=\"temporalInfo1\" name=\"temporalInfo1\" value=\"2020-06-03\" min=\"1992-10-02\" max=\"2018-12-31\" class=\"form-control\"/><label for=\"temporalInfo2\">Temporal Information - End Date</label> <input type=\"date\" id=\"temporalInfo2\" name=\"temporalInfo2\" value=\"2020-06-05\" min=\"1992-10-02\" max=\"2018-12-31\" class=\"form-control\"/>        ")
+              document.getElementById("temporalInfo1").setAttribute("max", today);
+              document.getElementById("temporalInfo2").setAttribute("max", today);
+              document.getElementById("temporalInfo1").setAttribute("min", '1998-01-01');
+              document.getElementById("temporalInfo2").setAttribute("min", '1998-01-01');
             }
         });
       });
@@ -71,6 +117,12 @@
                 <option value="NASA/ASTER_GED/AG100_003">NASA/ASTER_GED/AG100_003</option>
                 <option value="HYCOM/sea_surface_elevation">HYCOM/sea_surface_elevation</option>
                 <option value="CSP/ERGo/1_0/Global/SRTM_topoDiversity">CSP/ERGo/1_0/Global/SRTM_topoDiversity</option>
+                <option value="MODIS/006/MOD13A2">MODIS/006/MOD13A2</option>
+                <option value="LANDSAT/LC08/C01/T1_8DAY_NDVI">LANDSAT/LC08/C01/T1_8DAY_NDVI</option>
+                <option value="NOAA/NGDC/ETOPO1">NOAA/NGDC/ETOPO1</option>
+                <option value="MODIS/006/MOD11A1">MODIS/006/MOD11A1</option>
+                <option value="TRMM/3B43V7">TRMM/3B43V7</option>
+                <option value="TRMM/3B42">TRMM/3B42</option>
               </select>
               <label for="typeOfData">Type of Information</label>
               <select id="size" name = "typeOfData" class="form-control" required>
